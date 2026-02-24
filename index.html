@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
 <title>Lead Gen Case Study | Catheter Development Firm</title>
 
 <style>
@@ -35,7 +35,7 @@ body{
 .shell{
   max-width:var(--maxw);
   margin:0 auto;
-  padding:30px 24px 60px;
+  padding:clamp(20px, 5vw, 60px) clamp(16px, 4vw, 40px);
   text-align:center;
 }
 
@@ -43,7 +43,7 @@ body{
 .hero{
   display:flex;
   justify-content:center;
-  margin-bottom:35px;
+  margin-bottom:clamp(20px, 4vw, 35px);
 }
 
 .hero-toggle{
@@ -53,16 +53,18 @@ body{
   padding:0;
   background:transparent;
   cursor:pointer;
+  -webkit-tap-highlight-color:transparent; /* Better mobile tap */
 }
 
 .hero-frame{
   border:1px solid var(--border);
   overflow:hidden;
+  border-radius:4px; /* subtle polish */
 }
 
 .hero-img{
   width:100%;
-  height:380px;
+  height:clamp(200px, 40vw, 380px); /* Responsive height */
   object-fit:cover;
   display:block;
 
@@ -71,69 +73,89 @@ body{
   transition:filter .3s ease, transform .35s ease;
 }
 
-.hero-toggle:hover .hero-img{
-  filter:grayscale(0%);
-  transform:scale(1.01);
+/* Touch-friendly interaction */
+@media (hover: hover) and (pointer: fine) {
+  .hero-toggle:hover .hero-img{
+    filter:grayscale(0%);
+    transform:scale(1.01);
+  }
 }
 
-.hero-toggle.active .hero-img{
+.hero-toggle.active .hero-img,
+.hero-toggle:active .hero-img { /* Better mobile feedback */
   filter:grayscale(0%);
 }
 
 /* ====== HEADER CONTENT ====== */
 .kicker{
-  font-size:12px;
+  font-size:clamp(10px, 2vw, 12px);
   font-weight:800;
   letter-spacing:.12em;
   color:var(--accent);
   text-transform:uppercase;
-  margin-bottom:10px;
+  margin-bottom:clamp(6px, 1.5vw, 10px);
 }
 
 h1{
-  margin:0 0 10px;
-  font-size:42px;
+  margin:0 0 clamp(5px, 1vw, 10px);
+  font-size:clamp(32px, 6vw, 42px); /* Fluid headline */
   color:var(--heading);
   text-transform:uppercase;
+  line-height:1.2;
+  word-break:break-word; /* Prevent overflow */
 }
 
 .subtitle{
   color:var(--link);
-  font-size:18px;
-  margin-bottom:18px;
+  font-size:clamp(16px, 3vw, 18px);
+  margin-bottom:clamp(12px, 2vw, 18px);
 }
 
 .summary{
   max-width:700px;
-  margin:0 auto 25px;
+  margin:0 auto clamp(20px, 4vw, 25px);
   color:var(--muted);
-  font-size:16px;
+  font-size:clamp(15px, 2.5vw, 16px);
+  padding:0 5px; /* breathing room */
 }
 
 .divider{
   border-top:1px solid var(--border);
-  margin:30px auto;
+  margin:clamp(20px, 4vw, 30px) auto;
   max-width:800px;
 }
 
 /* ====== KPI ROW ====== */
 .kpis{
   display:flex;
+  flex-wrap:wrap; /* Allow wrapping */
   justify-content:center;
-  gap:90px;
-  margin-bottom:30px;
+  gap:clamp(20px, 8vw, 90px);
+  margin-bottom:clamp(25px, 5vw, 30px);
+}
+
+.kpis > div {
+  flex:0 1 auto;
+  min-width:120px; /* Prevents squishing */
 }
 
 .kpi-label{
-  font-size:11px;
+  font-size:clamp(10px, 2vw, 11px);
   letter-spacing:.14em;
   text-transform:uppercase;
   color:var(--subtle);
   font-weight:800;
+  white-space:nowrap; /* Keeps labels on one line */
+}
+
+@media (max-width:480px) {
+  .kpi-label {
+    white-space:normal; /* Allow wrap on very small screens */
+  }
 }
 
 .kpi-value{
-  font-size:24px;
+  font-size:clamp(20px, 5vw, 24px);
   font-weight:900;
   color:var(--heading);
 }
@@ -146,61 +168,120 @@ h1{
 }
 
 .story-item{
-  margin-bottom:28px;
-  padding-bottom:20px;
+  margin-bottom:clamp(20px, 4vw, 28px);
+  padding-bottom:clamp(15px, 3vw, 20px);
   border-bottom:1px solid #f1f5f9;
 }
 
+.story-item:last-child {
+  border-bottom:0;
+}
+
 .story-title{
-  font-size:13px;
+  font-size:clamp(12px, 2.5vw, 13px);
   font-weight:900;
   letter-spacing:.12em;
   text-transform:uppercase;
   color:var(--heading);
-  margin-bottom:8px;
+  margin-bottom:clamp(5px, 1vw, 8px);
 }
 
 .story p{
   color:var(--muted);
+  font-size:clamp(15px, 2.5vw, 16px);
+  margin:0 0 12px 0;
 }
 
 .result-callout{
   border-left:3px solid var(--accent);
-  padding:15px;
-  background:#fff;
+  padding:clamp(12px, 3vw, 15px);
+  background:#fafafa; /* Slight contrast */
   margin-top:12px;
+  border-radius:0 4px 4px 0;
+  font-size:clamp(15px, 2.5vw, 16px);
 }
 
 .quote{
-  margin-top:15px;
+  margin-top:20px;
   font-style:italic;
   color:#64748b;
+  font-size:clamp(15px, 2.5vw, 16px);
+  padding-left:10px;
 }
 
-/* CTA */
+/* CTA - Mobile optimized */
 .cta-bar{
-  margin-top:25px;
+  margin-top:30px;
   background:var(--ctaNavy);
   border-radius:8px;
+  transition:transform 0.2s ease;
+}
+
+.cta-bar:active {
+  transform:scale(0.98); /* Subtle tap feedback */
 }
 
 .cta-bar a{
   display:block;
-  padding:18px;
+  padding:clamp(14px, 4vw, 18px);
   text-align:center;
   color:#fff;
   font-weight:900;
   text-decoration:none;
   text-transform:uppercase;
   letter-spacing:.08em;
+  font-size:clamp(14px, 3vw, 16px);
+  -webkit-tap-highlight-color:rgba(255,255,255,0.2);
 }
 
-/* MOBILE */
-@media(max-width:768px){
-  .hero-img{height:250px;}
-  .kpis{
+/* Better touch area */
+.cta-bar a:active {
+  opacity:0.9;
+}
+
+/* Additional mobile refinements */
+@media (max-width:600px){
+  .kpis {
+    gap:15px;
     flex-direction:column;
-    gap:20px;
+    align-items:center;
+  }
+  
+  .kpis > div {
+    width:100%;
+    max-width:200px;
+  }
+  
+  .story-item p {
+    margin-bottom:15px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width:380px){
+  h1 {
+    font-size:28px;
+  }
+  
+  .subtitle {
+    font-size:15px;
+  }
+  
+  .kpi-value {
+    font-size:20px;
+  }
+}
+
+/* Print styles - optional but nice */
+@media print {
+  .hero-toggle {
+    filter:none !important;
+  }
+  .hero-img {
+    filter:none !important;
+  }
+  .cta-bar {
+    display:none;
   }
 }
 </style>
@@ -215,7 +296,7 @@ h1{
   <button class="hero-toggle" id="catHeroToggle" type="button" aria-label="Toggle hero image color">
     <div class="hero-frame">
       <!-- Use your CAT colored hero image file here -->
-      <img src="cat-hero-color.jpeg" class="hero-img" alt="Catheter development hero image">
+      <img src="cat-hero-color.jpeg" class="hero-img" alt="Catheter development hero image" loading="lazy">
     </div>
   </button>
 </div>
@@ -225,9 +306,9 @@ h1{
 <div class="subtitle">Rapid Scale-Up</div>
 
 <p class="summary">
-From inconsistent inbound and referrals to a repeatable outbound system.
-In 6 months, we generated <strong>767+ leads</strong> and supported <strong>22+ deals closed</strong>,
-with a measured lead-to-deal conversion rate of <strong>2.87%</strong>.
+  From inconsistent inbound and referrals to a repeatable outbound system.
+  In 6 months, we generated <strong>767+ leads</strong> and supported <strong>22+ deals closed</strong>,
+  with a measured lead-to-deal conversion rate of <strong>2.87%</strong>.
 </p>
 
 <div class="divider"></div>
@@ -292,8 +373,20 @@ with a measured lead-to-deal conversion rate of <strong>2.87%</strong>.
 </main>
 
 <script>
-document.getElementById('catHeroToggle').addEventListener('click', function(){
-  this.classList.toggle('active');
+document.addEventListener('DOMContentLoaded', function() {
+  const toggleBtn = document.getElementById('catHeroToggle');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', function(){
+      this.classList.toggle('active');
+    });
+    
+    // Optional: Remove active state when clicking outside (better UX)
+    document.addEventListener('click', function(event) {
+      if (!toggleBtn.contains(event.target) && toggleBtn.classList.contains('active')) {
+        toggleBtn.classList.remove('active');
+      }
+    });
+  }
 });
 </script>
 
