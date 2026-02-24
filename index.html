@@ -2,286 +2,305 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
 <title>Lead Gen Case Study | Catheter Development Firm</title>
 
 <style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
 :root{
   --bg:#ffffff;
   --text:#0f172a;
   --muted:#475569;
   --subtle:#94a3b8;
   --border:#e5e7eb;
-
   --accent:#f59e0b;
   --heading:#0b2a5b;
   --ctaNavy:#0a2d66;
   --link:#1f4ea3;
-
-  --maxw:1100px;
 }
 
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  line-height:1.5;
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  width: 100%;
+  overflow-x: hidden;
 }
 
-/* ====== PAGE WRAP ====== */
-.shell{
-  max-width:var(--maxw);
-  margin:0 auto;
-  padding:clamp(20px, 5vw, 60px) clamp(16px, 4vw, 40px);
-  text-align:center;
+/* ====== MAIN CONTAINER - FULLY FLUID ====== */
+.shell {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5% 5% 10% 5%;
+  text-align: center;
 }
 
-/* ====== HERO (TOP CENTERED) ====== */
-.hero{
-  display:flex;
-  justify-content:center;
-  margin-bottom:clamp(20px, 4vw, 35px);
+/* ====== HERO SECTION ====== */
+.hero {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5%;
+  width: 100%;
 }
 
-.hero-toggle{
-  width:100%;
-  max-width:850px;
-  border:0;
-  padding:0;
-  background:transparent;
-  cursor:pointer;
-  -webkit-tap-highlight-color:transparent; /* Better mobile tap */
+.hero-toggle {
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
 }
 
-.hero-frame{
-  border:1px solid var(--border);
-  overflow:hidden;
-  border-radius:4px; /* subtle polish */
+.hero-frame {
+  border: 1px solid var(--border);
+  overflow: hidden;
+  border-radius: 4px;
+  width: 100%;
 }
 
-.hero-img{
-  width:100%;
-  height:clamp(200px, 40vw, 380px); /* Responsive height */
-  object-fit:cover;
-  display:block;
-
-  /* default black & white, click/hover to color */
-  filter:grayscale(100%) contrast(1.05);
-  transition:filter .3s ease, transform .35s ease;
+.hero-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(100%) contrast(1.05);
+  transition: filter 0.3s ease;
 }
 
-/* Touch-friendly interaction */
-@media (hover: hover) and (pointer: fine) {
-  .hero-toggle:hover .hero-img{
-    filter:grayscale(0%);
-    transform:scale(1.01);
-  }
+.hero-toggle:active .hero-img,
+.hero-toggle.active .hero-img {
+  filter: grayscale(0%);
 }
 
-.hero-toggle.active .hero-img,
-.hero-toggle:active .hero-img { /* Better mobile feedback */
-  filter:grayscale(0%);
+/* ====== TYPOGRAPHY - ALL IN RELATIVE UNITS ====== */
+.kicker {
+  font-size: clamp(0.7rem, 2vw, 0.8rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 1.5%;
 }
 
-/* ====== HEADER CONTENT ====== */
-.kicker{
-  font-size:clamp(10px, 2vw, 12px);
-  font-weight:800;
-  letter-spacing:.12em;
-  color:var(--accent);
-  text-transform:uppercase;
-  margin-bottom:clamp(6px, 1.5vw, 10px);
+h1 {
+  margin: 0 0 1.5% 0;
+  font-size: clamp(1.8rem, 7vw, 3.5rem);
+  color: var(--heading);
+  text-transform: uppercase;
+  line-height: 1.2;
+  word-break: break-word;
 }
 
-h1{
-  margin:0 0 clamp(5px, 1vw, 10px);
-  font-size:clamp(32px, 6vw, 42px); /* Fluid headline */
-  color:var(--heading);
-  text-transform:uppercase;
-  line-height:1.2;
-  word-break:break-word; /* Prevent overflow */
+.subtitle {
+  color: var(--link);
+  font-size: clamp(1rem, 4vw, 1.3rem);
+  margin-bottom: 2%;
 }
 
-.subtitle{
-  color:var(--link);
-  font-size:clamp(16px, 3vw, 18px);
-  margin-bottom:clamp(12px, 2vw, 18px);
+.summary {
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto 4% auto;
+  color: var(--muted);
+  font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+  line-height: 1.6;
 }
 
-.summary{
-  max-width:700px;
-  margin:0 auto clamp(20px, 4vw, 25px);
-  color:var(--muted);
-  font-size:clamp(15px, 2.5vw, 16px);
-  padding:0 5px; /* breathing room */
+.summary strong {
+  font-weight: 700;
 }
 
-.divider{
-  border-top:1px solid var(--border);
-  margin:clamp(20px, 4vw, 30px) auto;
-  max-width:800px;
+.divider {
+  border-top: 1px solid var(--border);
+  margin: 5% auto;
+  width: 80%;
+  max-width: 800px;
 }
 
-/* ====== KPI ROW ====== */
-.kpis{
-  display:flex;
-  flex-wrap:wrap; /* Allow wrapping */
-  justify-content:center;
-  gap:clamp(20px, 8vw, 90px);
-  margin-bottom:clamp(25px, 5vw, 30px);
+/* ====== KPI ROW - MOBILE FRIENDLY ====== */
+.kpis {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  margin-bottom: 5%;
+  width: 100%;
 }
 
 .kpis > div {
-  flex:0 1 auto;
-  min-width:120px; /* Prevents squishing */
+  flex: 0 1 auto;
+  min-width: 120px;
+  text-align: center;
+  margin: 2% 0;
 }
 
-.kpi-label{
-  font-size:clamp(10px, 2vw, 11px);
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--subtle);
-  font-weight:800;
-  white-space:nowrap; /* Keeps labels on one line */
+.kpi-label {
+  font-size: clamp(0.7rem, 2.5vw, 0.8rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--subtle);
+  font-weight: 800;
+  white-space: nowrap;
 }
 
-@media (max-width:480px) {
-  .kpi-label {
-    white-space:normal; /* Allow wrap on very small screens */
-  }
+.kpi-value {
+  font-size: clamp(1.3rem, 5vw, 2rem);
+  font-weight: 900;
+  color: var(--heading);
+  line-height: 1.3;
 }
 
-.kpi-value{
-  font-size:clamp(20px, 5vw, 24px);
-  font-weight:900;
-  color:var(--heading);
+/* ====== STORY SECTION ====== */
+.story {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: left;
 }
 
-/* ====== STORY ====== */
-.story{
-  max-width:850px;
-  margin:0 auto;
-  text-align:left;
-}
-
-.story-item{
-  margin-bottom:clamp(20px, 4vw, 28px);
-  padding-bottom:clamp(15px, 3vw, 20px);
-  border-bottom:1px solid #f1f5f9;
+.story-item {
+  margin-bottom: 6%;
+  padding-bottom: 5%;
+  border-bottom: 1px solid #f1f5f9;
+  width: 100%;
 }
 
 .story-item:last-child {
-  border-bottom:0;
+  border-bottom: none;
+  margin-bottom: 0;
 }
 
-.story-title{
-  font-size:clamp(12px, 2.5vw, 13px);
-  font-weight:900;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color:var(--heading);
-  margin-bottom:clamp(5px, 1vw, 8px);
+.story-title {
+  font-size: clamp(0.8rem, 3vw, 0.9rem);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--heading);
+  margin-bottom: 2%;
 }
 
-.story p{
-  color:var(--muted);
-  font-size:clamp(15px, 2.5vw, 16px);
-  margin:0 0 12px 0;
+.story p {
+  color: var(--muted);
+  font-size: clamp(0.9rem, 3.5vw, 1rem);
+  margin: 0 0 4% 0;
+  line-height: 1.6;
+  width: 100%;
 }
 
-.result-callout{
-  border-left:3px solid var(--accent);
-  padding:clamp(12px, 3vw, 15px);
-  background:#fafafa; /* Slight contrast */
-  margin-top:12px;
-  border-radius:0 4px 4px 0;
-  font-size:clamp(15px, 2.5vw, 16px);
+.story p:last-child {
+  margin-bottom: 0;
 }
 
-.quote{
-  margin-top:20px;
-  font-style:italic;
-  color:#64748b;
-  font-size:clamp(15px, 2.5vw, 16px);
-  padding-left:10px;
+.story strong {
+  font-weight: 700;
+  color: var(--heading);
 }
 
-/* CTA - Mobile optimized */
-.cta-bar{
-  margin-top:30px;
-  background:var(--ctaNavy);
-  border-radius:8px;
-  transition:transform 0.2s ease;
+.result-callout {
+  border-left: 4px solid var(--accent);
+  padding: 4% 5%;
+  background: #f8fafc;
+  margin: 4% 0;
+  border-radius: 0 4px 4px 0;
+  font-size: clamp(0.9rem, 3.5vw, 1rem);
+  width: 100%;
 }
 
-.cta-bar:active {
-  transform:scale(0.98); /* Subtle tap feedback */
+.quote {
+  margin: 5% 0 3% 0;
+  font-style: italic;
+  color: #475569;
+  font-size: clamp(0.9rem, 3.5vw, 1rem);
+  padding-left: 4%;
+  border-left: 2px solid var(--border);
 }
 
-.cta-bar a{
-  display:block;
-  padding:clamp(14px, 4vw, 18px);
-  text-align:center;
-  color:#fff;
-  font-weight:900;
-  text-decoration:none;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  font-size:clamp(14px, 3vw, 16px);
-  -webkit-tap-highlight-color:rgba(255,255,255,0.2);
+/* ====== CTA BUTTON ====== */
+.cta-bar {
+  margin-top: 8%;
+  background: var(--ctaNavy);
+  border-radius: 8px;
+  width: 100%;
 }
 
-/* Better touch area */
+.cta-bar a {
+  display: block;
+  padding: 4% 6%;
+  text-align: center;
+  color: #fff;
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: clamp(0.9rem, 4vw, 1.1rem);
+  width: 100%;
+  transition: opacity 0.2s;
+}
+
 .cta-bar a:active {
-  opacity:0.9;
+  opacity: 0.8;
 }
 
-/* Additional mobile refinements */
-@media (max-width:600px){
+/* ====== MOBILE BREAKPOINT - STACK KPI ROW ====== */
+@media screen and (max-width: 600px) {
   .kpis {
-    gap:15px;
-    flex-direction:column;
-    align-items:center;
+    flex-direction: column;
+    gap: 3%;
   }
   
   .kpis > div {
-    width:100%;
-    max-width:200px;
+    width: 100%;
+    margin: 1% 0;
   }
   
-  .story-item p {
-    margin-bottom:15px;
+  .kpi-label {
+    white-space: normal;
+  }
+  
+  .hero-img {
+    aspect-ratio: 16 / 9;
+  }
+  
+  .shell {
+    padding: 4% 4% 8% 4%;
+  }
+  
+  .summary {
+    width: 100%;
+  }
+  
+  .result-callout {
+    padding: 5% 6%;
   }
 }
 
-/* Extra small devices */
-@media (max-width:380px){
+/* ====== SMALL PHONES ====== */
+@media screen and (max-width: 380px) {
   h1 {
-    font-size:28px;
+    font-size: 1.8rem;
   }
   
   .subtitle {
-    font-size:15px;
+    font-size: 1rem;
   }
   
   .kpi-value {
-    font-size:20px;
+    font-size: 1.5rem;
   }
-}
-
-/* Print styles - optional but nice */
-@media print {
-  .hero-toggle {
-    filter:none !important;
-  }
-  .hero-img {
-    filter:none !important;
-  }
-  .cta-bar {
-    display:none;
+  
+  .cta-bar a {
+    padding: 5% 4%;
+    font-size: 0.9rem;
   }
 }
 </style>
@@ -295,7 +314,6 @@ h1{
 <div class="hero">
   <button class="hero-toggle" id="catHeroToggle" type="button" aria-label="Toggle hero image color">
     <div class="hero-frame">
-      <!-- Use your CAT colored hero image file here -->
       <img src="cat-hero-color.jpeg" class="hero-img" alt="Catheter development hero image" loading="lazy">
     </div>
   </button>
@@ -340,11 +358,10 @@ h1{
 
   <div class="story-item">
     <div class="story-title">The Mechanism</div>
-    <p><strong>The “Speed” Offer</strong><br>
+    <p><strong>The "Speed" Offer</strong><br>
       We took a complex technical service and distilled it into a clear promise centered on time savings.
       The message was designed to be simple, specific, and easy to say yes to.
     </p>
-
     <p><strong>Trade Show Reactivation</strong><br>
       We reactivated older leads from past events and outreach lists, turning dormant contacts into active sales conversations
       through disciplined follow-up and tighter qualification.
@@ -360,7 +377,7 @@ h1{
     </div>
 
     <p class="quote">
-      “Unmatched speed, quality, and cost efficiency. We did not just get leads, we validated our business model.”
+      "Unmatched speed, quality, and cost efficiency. We did not just get leads, we validated our business model."
     </p>
 
     <div class="cta-bar">
@@ -378,13 +395,6 @@ document.addEventListener('DOMContentLoaded', function() {
   if (toggleBtn) {
     toggleBtn.addEventListener('click', function(){
       this.classList.toggle('active');
-    });
-    
-    // Optional: Remove active state when clicking outside (better UX)
-    document.addEventListener('click', function(event) {
-      if (!toggleBtn.contains(event.target) && toggleBtn.classList.contains('active')) {
-        toggleBtn.classList.remove('active');
-      }
     });
   }
 });
