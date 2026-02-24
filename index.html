@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lead Gen Case Study | Catheter Development Firm</title>
+
+<style>
+:root{
+  --bg:#ffffff;
+  --text:#0f172a;
+  --muted:#475569;
+  --subtle:#94a3b8;
+  --border:#e5e7eb;
+
+  --accent:#f59e0b;
+  --heading:#0b2a5b;
+  --ctaNavy:#0a2d66;
+  --link:#1f4ea3;
+
+  --maxw:1100px;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  line-height:1.5;
+}
+
+/* ====== PAGE WRAP ====== */
+.shell{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:30px 24px 60px;
+  text-align:center;
+}
+
+/* ====== HERO (TOP CENTERED) ====== */
+.hero{
+  display:flex;
+  justify-content:center;
+  margin-bottom:35px;
+}
+
+.hero-toggle{
+  width:100%;
+  max-width:850px;
+  border:0;
+  padding:0;
+  background:transparent;
+  cursor:pointer;
+}
+
+.hero-frame{
+  border:1px solid var(--border);
+  overflow:hidden;
+}
+
+.hero-img{
+  width:100%;
+  height:380px;
+  object-fit:cover;
+  display:block;
+
+  /* default black & white, click/hover to color */
+  filter:grayscale(100%) contrast(1.05);
+  transition:filter .3s ease, transform .35s ease;
+}
+
+.hero-toggle:hover .hero-img{
+  filter:grayscale(0%);
+  transform:scale(1.01);
+}
+
+.hero-toggle.active .hero-img{
+  filter:grayscale(0%);
+}
+
+/* ====== HEADER CONTENT ====== */
+.kicker{
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.12em;
+  color:var(--accent);
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+h1{
+  margin:0 0 10px;
+  font-size:42px;
+  color:var(--heading);
+  text-transform:uppercase;
+}
+
+.subtitle{
+  color:var(--link);
+  font-size:18px;
+  margin-bottom:18px;
+}
+
+.summary{
+  max-width:700px;
+  margin:0 auto 25px;
+  color:var(--muted);
+  font-size:16px;
+}
+
+.divider{
+  border-top:1px solid var(--border);
+  margin:30px auto;
+  max-width:800px;
+}
+
+/* ====== KPI ROW ====== */
+.kpis{
+  display:flex;
+  justify-content:center;
+  gap:90px;
+  margin-bottom:30px;
+}
+
+.kpi-label{
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--subtle);
+  font-weight:800;
+}
+
+.kpi-value{
+  font-size:24px;
+  font-weight:900;
+  color:var(--heading);
+}
+
+/* ====== STORY ====== */
+.story{
+  max-width:850px;
+  margin:0 auto;
+  text-align:left;
+}
+
+.story-item{
+  margin-bottom:28px;
+  padding-bottom:20px;
+  border-bottom:1px solid #f1f5f9;
+}
+
+.story-title{
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--heading);
+  margin-bottom:8px;
+}
+
+.story p{
+  color:var(--muted);
+}
+
+.result-callout{
+  border-left:3px solid var(--accent);
+  padding:15px;
+  background:#fff;
+  margin-top:12px;
+}
+
+.quote{
+  margin-top:15px;
+  font-style:italic;
+  color:#64748b;
+}
+
+/* CTA */
+.cta-bar{
+  margin-top:25px;
+  background:var(--ctaNavy);
+  border-radius:8px;
+}
+
+.cta-bar a{
+  display:block;
+  padding:18px;
+  text-align:center;
+  color:#fff;
+  font-weight:900;
+  text-decoration:none;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero-img{height:250px;}
+  .kpis{
+    flex-direction:column;
+    gap:20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<main class="shell">
+
+<!-- HERO TOP -->
+<div class="hero">
+  <button class="hero-toggle" id="catHeroToggle" type="button" aria-label="Toggle hero image color">
+    <div class="hero-frame">
+      <!-- Use your CAT colored hero image file here -->
+      <img src="cat-hero-color.jpeg" class="hero-img" alt="Catheter development hero image">
+    </div>
+  </button>
+</div>
+
+<div class="kicker">Lead Gen</div>
+<h1>Catheter Development Firm</h1>
+<div class="subtitle">Rapid Scale-Up</div>
+
+<p class="summary">
+From inconsistent inbound and referrals to a repeatable outbound system.
+In 6 months, we generated <strong>767+ leads</strong> and supported <strong>22+ deals closed</strong>,
+with a measured lead-to-deal conversion rate of <strong>2.87%</strong>.
+</p>
+
+<div class="divider"></div>
+
+<div class="kpis">
+  <div>
+    <div class="kpi-label">Leads Generated</div>
+    <div class="kpi-value">767+</div>
+  </div>
+  <div>
+    <div class="kpi-label">Deals Closed</div>
+    <div class="kpi-value">22+</div>
+  </div>
+  <div>
+    <div class="kpi-label">Timeframe</div>
+    <div class="kpi-value">6 Months</div>
+  </div>
+</div>
+
+<section class="story">
+
+  <div class="story-item">
+    <div class="story-title">The Problem</div>
+    <p>
+      They had a solution that could significantly reduce development timelines, but awareness was low.
+      The market could not buy what it did not know existed.
+    </p>
+  </div>
+
+  <div class="story-item">
+    <div class="story-title">The Mechanism</div>
+    <p><strong>The “Speed” Offer</strong><br>
+      We took a complex technical service and distilled it into a clear promise centered on time savings.
+      The message was designed to be simple, specific, and easy to say yes to.
+    </p>
+
+    <p><strong>Trade Show Reactivation</strong><br>
+      We reactivated older leads from past events and outreach lists, turning dormant contacts into active sales conversations
+      through disciplined follow-up and tighter qualification.
+    </p>
+  </div>
+
+  <div class="story-item">
+    <div class="story-title">The Result</div>
+
+    <div class="result-callout">
+      Strong traction. In 6 months, outreach generated more leads than the prior multi-year period combined.
+      22+ closed deals proved the market responded once the offer was positioned clearly and distributed consistently.
+    </div>
+
+    <p class="quote">
+      “Unmatched speed, quality, and cost efficiency. We did not just get leads, we validated our business model.”
+    </p>
+
+    <div class="cta-bar">
+      <a href="https://www.lucid-strategy.com/contact">Get These Results</a>
+    </div>
+  </div>
+
+</section>
+
+</main>
+
+<script>
+document.getElementById('catHeroToggle').addEventListener('click', function(){
+  this.classList.toggle('active');
+});
+</script>
+
+</body>
+</html>
